@@ -28,7 +28,7 @@ Nace del interior de una **geoda de amatista**: roca común por fuera, un reino 
 
 ## 🔗 Enlaces oficiales
 
-- 🌐 **Página web:** vivigeosilha.github.io/VIVIGEOSILHA
+- 🌐 **Página web:** https://fobnud-8wokpo-qivsyz.github.io/VIVIGEOSILHA/
 - 📌 **Pinterest:** https://pin.it/3L7uM2jOx
 - 🔗 **Enlace corto:** tinyurl.com/VIVIGEOSILHA
 
