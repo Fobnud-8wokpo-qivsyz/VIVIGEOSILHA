@@ -54,7 +54,7 @@ body {
 .container {
   max-width: 780px;
   margin: 0 auto;
-  padding: 3.5rem 1.5rem 5rem;
+  padding: 3.5rem 1.25rem 5rem;
   position: relative;
   z-index: 1;
 }
@@ -66,8 +66,8 @@ header {
 }
 
 h1.galactic-glow {
-  font-size: clamp(2.8rem, 11vw, 5rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(1.9rem, 8.5vw, 4.5rem);
+  letter-spacing: 0.06em;
   font-weight: 700;
   background: linear-gradient(90deg, #fff, var(--lilac), var(--gold), var(--lilac));
   background-size: 200% auto;
@@ -80,6 +80,8 @@ h1.galactic-glow {
     0 0 80px rgba(255, 215, 0, 0.25);
   animation: float 5s ease-in-out infinite, shimmer 6s linear infinite;
   margin-bottom: 0.4rem;
+  word-break: keep-all;
+  white-space: nowrap;
 }
 
 @keyframes float {
@@ -92,7 +94,7 @@ h1.galactic-glow {
 }
 
 .subtitulo {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: var(--lilac);
   font-style: italic;
   margin-bottom: 0.6rem;
@@ -100,8 +102,8 @@ h1.galactic-glow {
 
 .frase-descubrimiento {
   color: var(--muted);
-  font-size: 1rem;
-  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
 }
 
 /* Foto perfil */
@@ -118,6 +120,8 @@ h1.galactic-glow {
     0 0 40px rgba(147, 112, 219, 0.45),
     0 0 80px rgba(138, 43, 226, 0.2);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  object-fit: cover;
+  aspect-ratio: 1;
 }
 
 .foto-perfil:hover {
@@ -366,6 +370,13 @@ footer {
 
 /* Responsive */
 @media (max-width: 520px) {
+  h1.galactic-glow {
+    font-size: clamp(1.6rem, 9vw, 2.4rem);
+    letter-spacing: 0.04em;
+  }
+  .subtitulo {
+    font-size: 1.1rem;
+  }
   .cards {
     gap: 0.8rem;
   }
@@ -382,5 +393,8 @@ footer {
   .geoda {
     width: 140px;
     height: 140px;
+  }
+  .foto-perfil {
+    max-width: 220px;
   }
 }
