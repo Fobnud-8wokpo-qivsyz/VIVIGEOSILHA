@@ -1,151 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIVIGEOSILHA — Un mundo que se convirtió en universo 🌌</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Georgia,serif}
-        body{background:linear-gradient(180deg,#1a0f2e,#2d1b4e,#3d2066,#1a0f2e);min-height:100vh;color:white;text-align:center;line-height:1.8}
-        .container{max-width:700px;margin:0 auto;padding:3rem 2rem}
-        h1{font-size:clamp(3.5rem,12vw,5.5rem);letter-spacing:6px;background:linear-gradient(90deg,#e8d5ff,#b994ff,#9160ff,#c4a8ff);-webkit-background-clip:text;color:transparent;margin-bottom:0.5rem}
-        .subtitulo{font-size:1.4rem;color:#d4bfff;margin-bottom:2.5rem;font-style:italic}
-        .foto-perfil{max-width:280px;border-radius:20px;margin:0 auto 2.5rem;box-shadow:0 0 40px rgba(147,112,219,0.4)}
-        .origen{background:rgba(138,43,226,0.15);border:1px solid rgba(179,136,255,0.25);border-radius:24px;padding:2.5rem;margin-bottom:2.5rem;backdrop-filter:blur(10px)}
-        .origen h2{color:#e2d5ff;font-size:1.5rem;margin-bottom:1rem}
-        .significado{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin:2rem 0}
-        .letra{background:linear-gradient(145deg,#5a3696,#7b52cc);border-radius:14px;padding:1rem 1.2rem;min-width:80px;box-shadow:0 4px 20px rgba(123,82,204,0.3)}
-        .letra span{font-size:1.8rem;font-weight:bold;color:#f0e6ff;display:block}
-        .letra small{color:#d4c2ff;font-size:0.85rem}
-        .descripcion{font-size:1.15rem;color:#e4d9ff;max-width:550px;margin:0 auto 2.5rem}
-        .enlace{display:inline-block;background:linear-gradient(90deg,#7b52cc,#9966ff,#7b52cc);color:white;text-decoration:none;font-weight:bold;padding:1.1rem 2.5rem;border-radius:50px;font-size:1.2rem;box-shadow:0 0 30px rgba(123,82,204,0.4);transition:transform 0.3s ease}
-        .enlace:hover{transform:scale(1.05)}
-        .simbolo{font-size:2.5rem;margin:1.5rem 0}
-        .frase-final{font-size:1.3rem;font-style:italic;color:#d4bfff;margin-top:2rem;padding:1.5rem;border-top:1px solid rgba(179,136,255,0.2)}
-        .footer{margin-top:4rem;color:#b39ddb;font-size:0.9rem}
-
-        /* 🖼️ GALERÍA DE PINES ESTILOS */
-        .galeria-seccion{margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(179,136,255,0.2)}
-        .galeria-seccion h2{font-size:2rem;color:#e2d5ff;margin-bottom:0.5rem}
-        .galeria-seccion p{color:#b39ddb;margin-bottom:2rem}
-        .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-        .pin{background:rgba(255,255,255,0.05);border-radius:16px;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;text-decoration:none}
-        .pin:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(147,112,219,0.3)}
-        .pin img{width:100%;height:200px;object-fit:cover;display:block}
-        .pin-titulo{padding:12px;font-size:0.9rem;color:#e4d9ff;line-height:1.4}
-        .cargando{color:#b39ddb;font-style:italic;padding:3rem}
-        .ver-todos{margin-top:2rem}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIVIGEOSILHA — Galactic Edition</title>
+  <meta name="description" content="Un universo de vida, tierra, cristal y conexión. Nacido de una geoda de amatista." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <canvas id="galaxy-canvas"></canvas>
-<div class="nebula-overlay"></div>
-    <div class="container">
+  <!-- Fondo galáctico -->
+  <canvas id="galaxy-canvas"></canvas>
+  <div class="nebula-overlay"></div>
 
-        <h1>VIVIGEOSILHA</h1>
-        <p class="subtitulo">Un mundo que se convirtió en universo</p>
+  <div class="container">
 
-        <!-- 📸 Tu foto real de la geoda -->
-        <img src="perfil.jpg" alt="Geoda de amatista — Origen de VIVIGEOSILHA" class="foto-perfil">
+    <!-- HEADER -->
+    <header class="reveal">
+      <h1 class="galactic-glow">VIVIGEOSILHA</h1>
+      <p class="subtitulo">Un mundo que se convirtió en universo</p>
+      <p class="frase-descubrimiento">No fue inventado. Fue descubierto…</p>
+    </header>
 
-        <div class="origen">
-            <h2>💎 El Origen</h2>
-            <p style="font-size:1.1rem; color:#e9e0ff">
-                Este nombre no fue inventado — <strong>fue descubierto</strong>.<br>
-                Nace del interior de una <strong>geoda de amatista</strong>:<br>
-                roca común por fuera, un reino de cristales violetas por dentro.<br>
-                Formada en la tierra durante millones de años,<br>
-                guardando luz que hoy brilla como <strong>VIVIGEOSILHA</strong>.
-            </p>
-            <div class="simbolo">🪨 ➡️ 💎 ➡️ 🌌</div>
-        </div>
-
-        <h2>✨ Significado del nombre</h2>
-        <div class="significado">
-            <div class="letra"><span>VIVI</span><small>Vida · Brillo</small></div>
-            <div class="letra"><span>GEO</span><small>Tierra · Origen</small></div>
-            <div class="letra"><span>SILHA</span><small>Luz · Universo</small></div>
-        </div>
-
-        <p class="descripcion">
-            <em>De la tierra nace la piedra,<br>
-            de la piedra nace el cristal,<br>
-            del cristal se abre un universo entero.</em>
-        </p>
-
-        <a href="https://pin.it/3L7uM2jOx" class="enlace">📌 Visitar perfil completo</a>
-
-        <!-- 🖼️ GALERÍA AUTOMÁTICA — TU TABLERO VIVIGEOSILHA -->
-        <div class="galeria-seccion">
-            <h2>🖼️ • 💜 VIVIGEOSILHA</h2>
-            <p>El Origen → La amatista que lo empezó todo ✨</p>
-            <div id="galeria-pines" class="galeria">
-                <div class="cargando">Cargando creaciones… 💜</div>
-            </div>
-            <div class="ver-todos">
-                <a href="https://pin.it/3nclNF8EQ" class="enlace" style="font-size:1rem; padding:0.8rem 2rem;">Ver tablero completo →</a>
-            </div>
-        </div>
-
-        <p class="frase-final">
-            "La naturaleza ya había creado el nombre.<br>
-            Nosotros solo lo escuchamos."
-        </p>
-
-        <div class="footer">
-            VIVIGEOSILHA © 2026 · Nacida de la amatista · Para siempre 💜
-        </div>
-
+    <!-- FOTO DE LA GEODA -->
+    <div class="foto-wrap reveal">
+      <img src="perfil.jpg" alt="Geoda de amatista — Origen de VIVIGEOSILHA" class="foto-perfil" />
     </div>
 
-    <!-- 🤖 CÓDIGO QUE LEE TU TABLERO AUTOMÁTICAMENTE -->
-    <script>
-        // 🔗 TU TABLERO — ¡YA ESTÁ CONFIGURADO! ✅
-        const RSS_URL = 'https://www.pinterest.com/atiruz3627/vivigeosilha.rss';
-        const PROXY_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`;
+    <!-- ORIGEN / GEODA ANIMADA -->
+    <section id="origen" class="reveal">
+      <h2>💎 El Origen</h2>
+      <div class="geoda">
+        <div class="geoda-mitad izq"></div>
+        <div class="geoda-mitad der"></div>
+        <div class="cristales"></div>
+      </div>
+      <p class="origen-texto">
+        Este nombre no fue inventado — <strong>fue descubierto</strong>.<br />
+        Nace del interior de una <strong>geoda de amatista</strong>:<br />
+        roca común por fuera, un reino de cristales violetas por dentro.<br />
+        Formada en la tierra durante millones de años,<br />
+        guardando luz que hoy brilla como <strong>VIVIGEOSILHA</strong>.
+      </p>
+      <div class="simbolo">🪨 ➡️ 💎 ➡️ 🌌</div>
+    </section>
 
-        async function cargarPines() {
-            try {
-                const respuesta = await fetch(PROXY_URL);
-                const datos = await respuesta.json();
-                
-                const contenedor = document.getElementById('galeria-pines');
-                contenedor.innerHTML = ''; // Quitar "Cargando..."
+    <!-- SIGNIFICADO -->
+    <section id="significado" class="reveal">
+      <h2>✨ Significado del nombre</h2>
+      <div class="cards">
+        <div class="card" data-card="VIVI">
+          <span class="card-title">VIVI</span>
+          <span class="card-desc">Vida · Brillo</span>
+        </div>
+        <div class="card" data-card="GEO">
+          <span class="card-title">GEO</span>
+          <span class="card-desc">Tierra · Origen</span>
+        </div>
+        <div class="card" data-card="SILHA">
+          <span class="card-title">SILHA</span>
+          <span class="card-desc">Luz · Universo</span>
+        </div>
+      </div>
+      <p class="descripcion">
+        <em>De la tierra nace la piedra,<br />
+        de la piedra nace el cristal,<br />
+        del cristal se abre un universo entero.</em>
+      </p>
+    </section>
 
-                if (datos.items && datos.items.length > 0) {
-                    // Mostrar hasta 12 pines más recientes
-                    datos.items.slice(0, 12).forEach(pin => {
-                        const tarjeta = document.createElement('a');
-                        tarjeta.href = pin.link;
-                        tarjeta.target = '_blank';
-                        tarjeta.className = 'pin';
-                        
-                        // Extraer imagen del pin
-                        let imagen = pin.thumbnail;
-                        if (!imagen) {
-                            const imgMatch = pin.description.match(/<img[^>]+src="([^"]+)"/);
-                            if (imgMatch) imagen = imgMatch[1];
-                        }
-                        if (!imagen) imagen = 'https://via.placeholder.com/300x300/3d2066/c4a8ff?text=VIVIGEOSILHA';
-                        
-                        tarjeta.innerHTML = `
-                            <img src="${imagen}" alt="${pin.title}" loading="lazy">
-                            <div class="pin-titulo">${pin.title.substring(0, 36)}${pin.title.length > 36 ? '…' : ''}</div>
-                        `;
-                        contenedor.appendChild(tarjeta);
-                    });
-                } else {
-                    contenedor.innerHTML = '<p style="color:#b39ddb;grid-column:1/-1;">No hay pines aún en este tablero. ¡Agrega tus creaciones y aparecerán aquí automáticamente! 💜</p>';
-                }
-            } catch (error) {
-                console.error('Error cargando pines:', error);
-                document.getElementById('galeria-pines').innerHTML = '<p style="color:#b39ddb;grid-column:1/-1;">Conectando con tu universo… 💜</p>';
-            }
-        }
+    <!-- ENLACE PINTEREST -->
+    <div class="cta reveal">
+      <a href="https://pin.it/3L7uM2jOx" class="enlace" target="_blank" rel="noopener">📌 Visitar perfil completo</a>
+    </div>
 
-        cargarPines();
-    </script>
-</body><canvas id="galaxy-canvas"></canvas>
-<div class="nebula-overlay"></div>
+    <!-- GALERÍA -->
+    <section id="galeria" class="reveal">
+      <h2>🖼️ · 💜 VIVIGEOSILHA</h2>
+      <p class="galeria-sub">El Origen → La amatista que lo empezó todo ✨</p>
+      <div class="masonry">
+        <div class="masonry-item"><img src="762512977_1614836013606388_7550958876492193259_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="762689104_3985018238318687_8179952589979974198_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763103186_2346306529754465_6368788667937910720_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763107041_1741556930597851_6741744332153051066_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763205087_4060632137570134_5797709345194131873_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763213678_1716701206236217_2296441445903535652_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763226305_1747537206432953_4464553635243861060_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+        <div class="masonry-item"><img src="763701049_1073825511839201_4376251464123173972_n.webp" alt="VIVIGEOSILHA" loading="lazy" /></div>
+      </div>
+      <div class="cta">
+        <a href="https://pin.it/3nclNF8EQ" class="enlace secondary" target="_blank" rel="noopener">Ver tablero completo →</a>
+      </div>
+    </section>
 
+    <!-- FRASE FINAL -->
+    <p class="frase-final reveal">
+      "La naturaleza ya había creado el nombre.<br />
+      Nosotros solo lo escuchamos."
+    </p>
+
+    <footer>
+      VIVIGEOSILHA © 2026 · Nacida de la amatista · Para siempre 💜
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
