@@ -21,8 +21,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 1.5rem;
+      padding-bottom: 3rem;
       background-image:
         radial-gradient(ellipse 80% 50% at 50% -20%, rgba(138,43,226,0.35), transparent),
         radial-gradient(ellipse 60% 40% at 80% 100%, rgba(255,215,0,0.08), transparent);
@@ -36,9 +37,10 @@
       padding: 2rem 1.75rem;
       box-shadow: 0 0 0 1px rgba(138,43,226,0.15), 0 25px 80px -20px rgba(138,43,226,0.5);
       backdrop-filter: blur(12px);
+      margin-top: 1rem;
     }
     h1 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       letter-spacing: 0.12em;
       text-align: center;
       margin-bottom: 0.35rem;
@@ -49,33 +51,45 @@
     }
     .sub {
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: rgba(255,255,255,0.55);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 0.04em;
+      line-height: 1.4;
     }
     label {
       display: block;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       color: var(--lilac);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       text-transform: uppercase;
     }
-    input {
+    input, select {
       width: 100%;
-      padding: 0.85rem 1rem;
+      padding: 0.8rem 1rem;
       border-radius: 12px;
       border: 1px solid rgba(138,43,226,0.35);
       background: rgba(10,6,18,0.7);
       color: #fff;
-      font-size: 1rem;
-      margin-bottom: 1.15rem;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
       outline: none;
       transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
     }
-    input:focus { border-color: var(--violet); }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23D8B4FE' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    select option { background: #1A0B2E; color: #fff; }
+    input:focus, select:focus { border-color: var(--violet); }
     input::placeholder { color: rgba(255,255,255,0.3); }
+    .row { display: flex; gap: 0.75rem; }
+    .row > div { flex: 1; }
     button {
       width: 100%;
       padding: 1rem;
@@ -83,11 +97,11 @@
       border-radius: 999px;
       background: linear-gradient(135deg, #8A2BE2, #6A0DAD);
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       cursor: pointer;
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 0 24px rgba(138,43,226,0.45);
     }
@@ -95,8 +109,8 @@
     button:active { transform: translateY(0); }
     #resultado {
       display: none;
-      margin-top: 1.75rem;
-      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1.35rem;
       border-top: 1px solid rgba(138,43,226,0.25);
     }
     #resultado.visible { display: block; }
@@ -105,13 +119,13 @@
       border: 1px solid rgba(138,43,226,0.3);
       border-radius: 14px;
       padding: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       line-height: 1.55;
       color: rgba(255,255,255,0.85);
       white-space: pre-wrap;
       word-break: break-word;
       margin-bottom: 1rem;
-      max-height: 220px;
+      max-height: 240px;
       overflow-y: auto;
     }
     .btn-copiar {
@@ -132,18 +146,49 @@
       letter-spacing: 0.08em;
     }
     .volver:hover { color: var(--lilac); }
+    .hint {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: -0.65rem;
+      margin-bottom: 0.9rem;
+    }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>✨ EXPERIENCIA PERSONALIZADA</h1>
-    <p class="sub">Tu nombre + fecha → prompt único para Grok o Meta AI</p>
+    <p class="sub">Datos de ti → prompt único para generar tu retrato en Grok o Meta AI</p>
 
     <label for="nombre">Tu nombre</label>
-    <input type="text" id="nombre" placeholder="Ej: Luna" autocomplete="name" />
+    <input type="text" id="nombre" placeholder="Ej: Hugo Daniel" autocomplete="name" />
 
     <label for="fecha">Fecha de nacimiento</label>
     <input type="date" id="fecha" />
+
+    <label for="presentacion">Presentación</label>
+    <select id="presentacion">
+      <option value="hombre">Hombre</option>
+      <option value="mujer">Mujer</option>
+      <option value="etereo">Etéreo / no binario</option>
+    </select>
+
+    <label for="cabello">Cabello</label>
+    <input type="text" id="cabello" placeholder="Ej: castaño oscuro, ondulado, medio" />
+    <p class="hint">Color + estilo + largo (opcional pero muy útil)</p>
+
+    <label for="energia">Energía / palabra clave</label>
+    <input type="text" id="energia" placeholder="Ej: fuerza serena, misterio, luz" />
+    <p class="hint">Define la expresión y la atmósfera</p>
+
+    <label for="rol">Rol en VIVIGEOSILHA (opcional)</label>
+    <select id="rol">
+      <option value="">— Elegir —</option>
+      <option value="guardian del portal">Guardian/a del portal</option>
+      <option value="explorador de geodas">Explorador/a de geodas</option>
+      <option value="tejedor de luz">Tejedor/a de luz</option>
+      <option value="guardia de la tormenta">Guardia de la Tormenta</option>
+      <option value="portador del cristal">Portador/a del cristal</option>
+    </select>
 
     <button type="button" id="btn-generar">GENERAR MI PROMPT</button>
 
@@ -179,7 +224,6 @@
         if (m1 === m2) {
           if (mes === m1 && dia >= d1 && dia <= d2) return s;
         } else if (m1 > m2) {
-          // cruza año (Capricornio)
           if ((mes === m1 && dia >= d1) || (mes === m2 && dia <= d2)) return s;
         } else {
           if ((mes === m1 && dia >= d1) || (mes === m2 && dia <= d2) || (mes > m1 && mes < m2)) return s;
@@ -210,16 +254,39 @@
         alert("Por favor elige tu fecha de nacimiento");
         return;
       }
+
+      const presentacion = document.getElementById("presentacion").value;
+      const cabello = document.getElementById("cabello").value.trim();
+      const energia = document.getElementById("energia").value.trim() || "presencia mística";
+      const rol = document.getElementById("rol").value || "guardian del portal";
+
       const [y, m, d] = fechaVal.split("-").map(Number);
       const signo = obtenerSigno(m, d);
       const cristal = cristales[signo.nombre] || "geoda de amatista";
 
-      const prompt = `Retrato etéreo de ${nombre}, guardiana del portal VIVIGEOSILHA, signo ${signo.nombre} ${signo.emoji}. Piel de ${cristal}, ojos violeta brillante, vestido hecho de cristales facetados que capturan luz estelar. Fondo: geoda abierta hacia una galaxia espiral, niebla mística violeta y dorada, iluminación cinematográfica, estilo editorial de alta costura mística, ultra detalle, 8k --ar 2:3`;
+      // Texto de presentación
+      let sujeto = "figura etérea";
+      let vestimenta = "atuendo hecho de cristales facetados que capturan luz estelar";
+      if (presentacion === "hombre") {
+        sujeto = "hombre";
+        vestimenta = "túnica y armadura de cristales facetados que capturan luz estelar";
+      } else if (presentacion === "mujer") {
+        sujeto = "mujer";
+        vestimenta = "vestido hecho de cristales facetados que capturan luz estelar";
+      }
+
+      // Cabello
+      const parteCabello = cabello
+        ? `cabello ${cabello},`
+        : "";
+
+      const prompt = `Retrato etéreo de ${nombre}, ${sujeto}, ${rol} VIVIGEOSILHA, signo ${signo.nombre} ${signo.emoji}. ${parteCabello} piel de ${cristal}, ojos violeta brillante, ${vestimenta}. Energía de ${energia}. Fondo: geoda abierta hacia una galaxia espiral, niebla mística violeta y dorada, iluminación cinematográfica, estilo editorial de alta costura mística, ultra detalle, 8k --ar 2:3`;
 
       document.getElementById("prompt-texto").textContent = prompt;
       document.getElementById("resultado").classList.add("visible");
       document.getElementById("btn-copiar").textContent = "COPIAR PROMPT";
       document.getElementById("btn-copiar").classList.remove("copiado");
+      document.getElementById("resultado").scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
     document.getElementById("btn-copiar").addEventListener("click", () => {
